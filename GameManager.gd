@@ -44,10 +44,9 @@ func _process(delta):
 
 
 func _on_NewCityBtn_pressed():
-	if resources >= 40 and cityIndex !=3:
+	if resources >= 40 and cityIndex !=4:
 		# Create city
 		resources -= 40
-		print("$CitiesLabel/CityContainer/VSplitContainer/City"+str(cityIndex))
 		var newCity = get_node("/root/Game/CitiesLabel/CityContainer/VSplitContainer/City"+str(cityIndex))
 		newCity.toggleActive(true)
 		cityIndex += 1
@@ -55,11 +54,9 @@ func _on_NewCityBtn_pressed():
 
 func _on_TickTimer_timeout():
 	for c in cityIndex:
-		resources += 10
-		var randVal = randi() % 2
-		if randVal == 1:
-			population += 1
-		if randVal == 2:
+		var randVal = randf()
+		if randVal < 0.8:
 			pass
-		else:
-			print("Uh oh")
+		if randVal < 0.2:
+			population += 1
+		#TODO: Resources
