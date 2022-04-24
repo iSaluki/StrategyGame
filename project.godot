@@ -84,6 +84,10 @@ config/name="Strategy Game"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalData="*res://globalData.gd"
+
 [editor_plugins]
 
 enabled=PoolStringArray(  )
