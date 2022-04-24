@@ -38,8 +38,8 @@ func _ready():
 	
 	
 func _process(delta):
-	$ResourcesLabel.set_text("Resources: "+ str(resources))
-	$PopulationLabel.set_text("Population: "+ str(population))
+	#$ResourcesLabel.set_text("Resources: "+ str(resources)) -- Obsolete, moved to city script
+	#$PopulationLabel.set_text("Population: "+ str(population)) -- Obsolete, moved to city script
 	$MilitaryLabel.set_text("Military: "+ str(military))
 
 
@@ -54,9 +54,18 @@ func _on_NewCityBtn_pressed():
 
 func _on_TickTimer_timeout():
 	for c in cityIndex:
+		var city = get_node("/root/Game/CitiesLabel/CityContainer/VSplitContainer/City"+str(c))
+		# Population growth
 		var randVal = randf()
 		if randVal < 0.8:
 			pass
 		if randVal < 0.2:
-			population += 1
-		#TODO: Resources
+			city.pop += 1
+		
+		# Resource production
+		randVal = randf()
+		if randVal < 0.2:
+			pass
+		if randVal < 0.8:
+			resources += city.prod * city.pop
+		
