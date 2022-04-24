@@ -62,6 +62,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MilitaryLabel" type="Label" parent="."]
+margin_left = 781.353
+margin_top = -0.752411
+margin_right = 881.353
+margin_bottom = 35.2475
+text = "Military: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PopulationLabel" type="Label" parent="."]
 margin_left = 682.001
 margin_top = -0.122467
