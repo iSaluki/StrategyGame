@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GameManager.gd" type="Script" id=1]
 [ext_resource path="res://NewCityBtn.gd" type="Script" id=2]
 [ext_resource path="res://city.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ProgressBar"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0 ]
+}
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -119,6 +136,21 @@ __meta__ = {
 [node name="TickTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.777541
+anchor_top = 0.971093
+anchor_right = 0.997268
+anchor_bottom = 0.994427
+value = 61.15
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProgressBar"]
+autoplay = "ProgressBar"
+anims/ProgressBar = SubResource( 1 )
 
 [connection signal="pressed" from="NewCityBtn" to="." method="_on_NewCityBtn_pressed"]
 [connection signal="timeout" from="TickTimer" to="." method="_on_TickTimer_timeout"]
