@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://city.gd" type="Script" id=1]
+
+[node name="City0" type="Panel"]
+visible = false
+anchor_left = -0.000821173
+anchor_right = 0.0968351
+anchor_bottom = 0.166667
+margin_top = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 100, 100 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Name" type="Label" parent="."]
+anchor_left = 0.19
+anchor_top = -0.00420441
+anchor_right = 0.81
+anchor_bottom = 0.135796
+text = "CityName"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Pop" type="Label" parent="."]
+anchor_left = 0.014158
+anchor_top = 0.250126
+anchor_right = 0.414158
+anchor_bottom = 0.390126
+text = "Pop: 0"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Prod" type="Label" parent="."]
+anchor_left = 0.00970367
+anchor_top = 0.419397
+anchor_right = 0.409704
+anchor_bottom = 0.559397
+text = "Prod: 0"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+text = "UPGRADE"
+__meta__ = {
+"_edit_use_anchors_": false
+}

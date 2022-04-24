@@ -9,7 +9,6 @@ var country = countries[0]
 var cities = []
 var cityIndex = 1
 
-var cityBase = preload("cityBase.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,7 +33,8 @@ func _ready():
 			population += 10
 			military += 20
 			cities = ["Washington", "New York", "San Francisco", "Detroit", "Chicago"]
-	$CitiesLabel/CityContainer/VSplitContainer/CapitalCity.set_text(cities[0])
+	$CitiesLabel/CityContainer/VSplitContainer/City0/Name.set_text(cities[0])
+	$CitiesLabel/CityContainer/VSplitContainer/City0.toggleActive(true)
 	
 	
 func _process(delta):
@@ -42,13 +42,24 @@ func _process(delta):
 	$PopulationLabel.set_text("Population: "+ str(population))
 	$MilitaryLabel.set_text("Military: "+ str(military))
 
-# FIXME: When more than two cities are made, the system breaks and they begin overlapping
+
 func _on_NewCityBtn_pressed():
-	if resources >= 40:
+	if resources >= 40 and cityIndex !=3:
 		# Create city
-		var createUnder = $CitiesLabel/CityContainer/VSplitContainer
 		resources -= 40
-		var newCity = cityBase.instance()
-		createUnder.add_child(newCity)
-		newCity.set_text(cities[cityIndex])
+		print("$CitiesLabel/CityContainer/VSplitContainer/City"+str(cityIndex))
+		var newCity = get_node("/root/Game/CitiesLabel/CityContainer/VSplitContainer/City"+str(cityIndex))
+		newCity.toggleActive(true)
 		cityIndex += 1
+
+
+func _on_TickTimer_timeout():
+	for c in cityIndex:
+		resources += 10
+		var randVal = randi() % 2
+		if randVal == 1:
+			population += 1
+		if randVal == 2:
+			pass
+		else:
+			print("Uh oh")
