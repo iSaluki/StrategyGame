@@ -11,7 +11,7 @@ var cityName = ""
 
 
 var upgradeScale = 1
-var baseUpPrice = 50
+var baseUpPrice = 40
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,9 +31,9 @@ func _process(delta):
 
 
 func _on_Button_pressed():
-	if GlobalData.resources >= upgradeScale * baseUpPrice:
+	if GlobalData.resources >= baseUpPrice:
 		prod += 1
-		GlobalData.resources -= upgradeScale * baseUpPrice
+		GlobalData.resources -= baseUpPrice
 		
-		upgradeScale += rand_range(0.1,1.0)
+		
 		

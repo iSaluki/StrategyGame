@@ -12,7 +12,7 @@ var cityIndex = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GlobalData.resources += 50
+	GlobalData.resources += 100
 	match country:
 		"Spain":
 			GlobalData.resources += 10
