@@ -8,6 +8,8 @@ var country = countries[0]
 var cities = []
 var cityIndex = 1
 
+# Emergency Variables
+var starving = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -64,22 +66,35 @@ func _on_TickTimer_timeout():
 		var city = get_node("/root/Game/CitiesLabel/CityContainer/VSplitContainer/City"+str(c))
 		
 		var designation = city.designation
+		
+		
 		# Population growth
-		var randVal = randf()
-		if randVal < 0.8:
-			pass
-		if randVal < 0.2:
-			city.pop += 1
-		totalPop += city.pop
+		if not starving:
+			var randVal = randf()
+			if randVal < 0.8:
+				pass
+			if randVal < 0.2:
+				city.pop += 1
+			totalPop += city.pop
 		# Resource production, including designation
-		randVal = randf()
+		var randVal = randf()
 		if randVal < 0.2:
 			pass
 		if randVal < 0.8:
-			if designation == "Resources":
+			if designation == "Resources" and not starving:
 				GlobalData.resources += city.prod * city.pop
-			if designation == "Food":
+			if designation == "Resources" and starving:
+				GlobalData.resources += (city.prod * city.pop) / 2
+			if designation == "Food" and not starving:
 				GlobalData.food += city.prod * city.pop
-			if designation == "Military":
+			if designation == "Food" and starving:
+				GlobalData.food += (city.prod * city.pop) / 2
+			if designation == "Military" and not starving:
 				GlobalData.military += city.prod * city.pop
+			if designation == "Military" and starving:
+				GlobalData.military += (city.prod * city.pop) / 2
 	$PopulationLabel.set_text("Population: "+ str(totalPop))
+		
+	# Food consumption
+	
+	GlobalData.food -= totalPop

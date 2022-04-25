@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://city.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
 
 [node name="City0" type="Panel"]
 anchor_left = -0.000976562
@@ -19,9 +23,10 @@ anchor_left = 0.19
 anchor_top = -0.00420441
 anchor_right = 0.81
 anchor_bottom = 0.135796
+custom_fonts/font = SubResource( 1 )
 text = "CityName"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Pop" type="Label" parent="."]
@@ -29,9 +34,10 @@ anchor_left = 0.014158
 anchor_top = 0.250126
 anchor_right = 0.414158
 anchor_bottom = 0.390126
+custom_fonts/font = SubResource( 1 )
 text = "Pop: 0"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Prod" type="Label" parent="."]
@@ -39,9 +45,10 @@ anchor_left = 0.00970367
 anchor_top = 0.419397
 anchor_right = 0.409704
 anchor_bottom = 0.559397
+custom_fonts/font = SubResource( 1 )
 text = "Prod: 0"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
@@ -49,6 +56,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -20.0
+custom_fonts/font = SubResource( 1 )
 text = "UPGRADE"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -59,12 +67,17 @@ anchor_left = 0.02
 anchor_top = 0.511403
 anchor_right = 0.99
 anchor_bottom = 0.660657
+margin_left = -1.12372
+margin_top = 7.49152
+margin_right = 6.87628
+margin_bottom = 11.4915
 mouse_filter = 1
+custom_fonts/font = SubResource( 1 )
 text = "Materials"
 items = [ "Materials", null, 1, true, false, 0, 0, null, "", false, "Food", null, 1, false, false, 1, 0, null, "", false, "Military", null, 1, false, false, 2, 0, null, "", false ]
 switch_on_hover = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

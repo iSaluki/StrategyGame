@@ -32,8 +32,8 @@ func toggleActive(state):
 		self.hide()
 
 func _process(delta):
-	$Pop.set_text("Population: "+ str(pop))
-	$Prod.set_text("Production: "+ str(prod))
+	$Pop.set_text("Pop: "+ str(pop))
+	$Prod.set_text("Prod: "+ str(prod))
 
 
 func _on_Button_pressed():
