@@ -4,19 +4,18 @@
 [ext_resource path="res://NewCityBtn.gd" type="Script" id=2]
 [ext_resource path="res://city.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.335766, 1 )
 colors = PoolColorArray( 1, 0, 0, 1, 0.792246, 0.20093, 0.057793, 1, 0.0185394, 0.949219, 0.273022, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = SubResource( 3 )
+[sub_resource type="StyleBoxTexture" id=3]
+texture = SubResource( 2 )
 region_rect = Rect2( 0, 0, 2048, 1 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "ProgressBar"
+[sub_resource type="Animation" id=4]
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -65,6 +64,8 @@ __meta__ = {
 }
 
 [node name="VSplitContainer" type="VSplitContainer" parent="CitiesLabel/CityContainer"]
+margin_right = 100.0
+margin_bottom = 230.0
 custom_constants/separation = 30
 collapsed = true
 
@@ -109,7 +110,17 @@ margin_left = 570.316
 margin_top = -0.122452
 margin_right = 670.316
 margin_bottom = 35.8775
-text = "Resources: 0"
+text = "Materials: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodLabel" type="Label" parent="."]
+margin_left = 860.988
+margin_top = 0.626709
+margin_right = 960.988
+margin_bottom = 36.6267
+text = "Food: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -154,7 +165,7 @@ anchor_left = 0.777541
 anchor_top = 0.971093
 anchor_right = 0.997268
 anchor_bottom = 0.994427
-custom_styles/fg = SubResource( 4 )
+custom_styles/fg = SubResource( 3 )
 value = 40.09
 percent_visible = false
 __meta__ = {
@@ -163,7 +174,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ProgressBar"]
 autoplay = "ProgressBar"
-anims/ProgressBar = SubResource( 1 )
+anims/ProgressBar = SubResource( 4 )
 
 [connection signal="pressed" from="NewCityBtn" to="." method="_on_NewCityBtn_pressed"]
 [connection signal="timeout" from="TickTimer" to="." method="_on_TickTimer_timeout"]

@@ -1,12 +1,8 @@
 extends Node
 
 
-# Stores global data for the game
+# TODO: Move logic related to countries in here 
 
-
-var resources = 10
-var food = 10
-var military = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

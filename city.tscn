@@ -3,10 +3,9 @@
 [ext_resource path="res://city.gd" type="Script" id=1]
 
 [node name="City0" type="Panel"]
-visible = false
-anchor_left = -0.000821173
-anchor_right = 0.0968351
-anchor_bottom = 0.166667
+anchor_left = -0.000976562
+anchor_right = 0.0966797
+anchor_bottom = 0.223333
 margin_top = 25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 100, 100 )
@@ -53,6 +52,19 @@ margin_top = -20.0
 text = "UPGRADE"
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="Designation" type="MenuButton" parent="."]
+anchor_left = 0.02
+anchor_top = 0.511403
+anchor_right = 0.99
+anchor_bottom = 0.660657
+mouse_filter = 1
+text = "Materials"
+items = [ "Materials", null, 1, true, false, 0, 0, null, "", false, "Food", null, 1, false, false, 1, 0, null, "", false, "Military", null, 1, false, false, 2, 0, null, "", false ]
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": true
 }
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
